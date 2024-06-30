@@ -9,40 +9,17 @@ import (
 	"my_gql_server/graph/model"
 )
 
-// CreateTodo is the resolver for the createTodo field.
+// Mutation createTodoが呼ばれた際に実行されるコード
 func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) (*model.Todo, error) {
-	return &model.Todo{
-		ID:   "TODO-3",
-		Text: input.Text,
-		User: &model.User{
-			ID:   input.UserID,
-			Name: "name",
-		},
-	}, nil
+	// TODO: ユーザーから受け取ったリクエスト情報inputを使って、TODOをと登録し
+	// その登録されたTODOの情報をmodel.TODO型の戻り値に入れて返却
+	return nil, nil
 }
 
-// Todos is the resolver for the todos field.
+// Query Todosが呼ばれた際に実行されるコード
 func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
-	return []*model.Todo{
-		{
-			ID:   "TODO-1",
-			Text: "My Todo 1",
-			User: &model.User{
-				ID:   "User-1",
-				Name: "hsaki",
-			},
-			Done: true,
-		},
-		{
-			ID:   "TODO-2",
-			Text: "My Todo 2",
-			User: &model.User{
-				ID:   "User-1",
-				Name: "hsaki",
-			},
-			Done: false,
-		},
-	}, nil
+	// TODO: レスポンスに含めるTODO一覧を、戻り値[]*model.TODOに入れて返却
+	return nil, nil
 }
 
 // Mutation returns MutationResolver implementation.
